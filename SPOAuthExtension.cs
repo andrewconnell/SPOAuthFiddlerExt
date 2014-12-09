@@ -14,6 +14,7 @@ namespace SPOAuthFiddlerExt {
 
     #region Inspector2 implementation
     public override void AddToTab(TabPage o) {
+        
       _displayControl = new SPOAuthRequestControl();
       o.Text = "SPOAuth";
       o.Controls.Add(_displayControl);
@@ -32,12 +33,13 @@ namespace SPOAuthFiddlerExt {
         return _headers;
       }
       set {
+          
         _headers = value;
         System.Collections.Generic.Dictionary<string, string> httpHeaders = new System.Collections.Generic.Dictionary<string, string>();
         foreach (var item in headers) {
           httpHeaders.Add(item.Name, item.Value);
         }
-        _displayControl.Headers = httpHeaders;
+        _displayControl.HTTPHeaders = httpHeaders;
       }
     }
 
@@ -64,7 +66,7 @@ namespace SPOAuthFiddlerExt {
       }
       set {
         _body = value;
-        _displayControl.Body = body;
+        _displayControl.HTTPBody = body;
       }
     }
     #endregion
